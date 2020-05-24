@@ -1,12 +1,13 @@
-import { AutorRoutingModule } from '../autor/autor-routing.module';
 import { CommonModule } from '@angular/common';
+import { FormLibroComponent } from './form-libro/form-libro.component';
+import { LibroRoutingModule } from './libro.routing.module';
 import { NgModule } from '@angular/core';
 
 @NgModule({
-  declarations: [],
+  declarations: [FormLibroComponent],
   imports: [
     CommonModule,
-    AutorRoutingModule
+    LibroRoutingModule
   ]
 })
 export class LibroModule { }
