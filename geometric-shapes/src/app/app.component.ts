@@ -2,13 +2,13 @@ import {
   Component,
   ComponentFactoryResolver,
   ViewChild,
-  ViewChildren,
   ViewContainerRef
 } from "@angular/core";
 
 import { CircleComponent } from "./components/circle/circle.component";
 import { SquareComponent } from "./components/square/square.component";
 import { TriangleComponent } from "./components/triangle/triangle.component";
+import { read } from 'fs';
 
 @Component({
   selector: "app-root",
@@ -16,7 +16,8 @@ import { TriangleComponent } from "./components/triangle/triangle.component";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  @ViewChild('figureContainer', {read: typeof ViewContainerRef}) figureContainer;
+
+  @ViewChild('figureContainer',{read: ViewContainerRef}) figureContainer: ViewContainerRef;
   activeTab = 0;
   tabs = [
     {
@@ -41,6 +42,7 @@ export class AppComponent {
     this.activeTab = pos;
     const factory = this.componentFactoryResolver.resolveComponentFactory(this.tabs[pos].component);
     this.figureContainer.createComponent(factory);
-    this.figureContainer.changeDetectorRef.detectChanges();
+    //this.figureContainer.changeDetectorRef.detectChanges();
+    //this.figureContainer.c
   }
 }
